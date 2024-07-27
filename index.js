@@ -3,13 +3,13 @@ const { google } = require('googleapis');
 const fs = require('fs');
 
 // Load your service account credentials
-const CREDENTIALS = JSON.parse(fs.readFileSync('./credentials.json'));
+// const CREDENTIALS = JSON.parse(fs.readFileSync('./credentials.json'));
 
 // Create a client to interact with the Google Sheets API
 const client = new google.auth.JWT(
-  CREDENTIALS.client_email,
+  process.env.client_email,
   null,
-  CREDENTIALS.private_key,
+  process.env.private_key,
   ['https://www.googleapis.com/auth/spreadsheets']
 );
 
